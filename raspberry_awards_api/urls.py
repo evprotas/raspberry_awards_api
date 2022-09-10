@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+import sys
+import os
 from raspberry_awards.utils import read_nominations
 
 urlpatterns = [
@@ -22,4 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-read_nominations()
+if sys.argv[1] == 'runserver':
+    filename = "movielist.csv"
+    try:
+        read_nominations(filename)
+    except FileNotFoundError:
+        print("Arquivo " + os.getcwd() + "/movielist.csv não encontrado.")
+        exit()

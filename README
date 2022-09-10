@@ -1,0 +1,25 @@
+#Requisitos:
+
+#Sistema operacional Ubuntu 18.04 ou mais recente
+
+#Instalar o python3
+sudo apt-get install python3 
+
+#Instalar o pip
+sudo apt-get install python3-pip
+
+#Acessar a pasta raiz do projeto e instalar os requisitos
+pip3 install -r requirements.txt
+
+#Executar os migrations
+python3 manage.py migrate
+
+#Para rodar os testes
+python3 manage.py test
+
+#O arquivo com os e vencedores deve ter o nome de movielist.csv e estar na raiz do projeto
+#Para rodar o servidor e carregar o arquivo com os indicados
+python3 manage.py runserver
+
+#A api pode ser testada com o curl:
+curl --location --request GET 'localhost:8000/awards/intervals'

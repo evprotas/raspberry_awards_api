@@ -3,5 +3,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('intervals', views.intervals, name='intervals'),
+    path('intervals', views.Intervals.as_view(), name='intervals'),
 ]
